@@ -1,0 +1,49 @@
+.filter-header>div {
+	font-weight: 400;
+	font-size: 18px;
+}
+
+.filter-button {
+	filter: unset;
+	text-align: center;
+	width: max-content;
+	line-height: 100%;
+	color: #212121;
+	padding: 5px;
+	background-color: rgb(160, 170, 204);
+	border-radius: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 1.5px solid rgb(109, 120, 155);
+	cursor: pointer;
+	display: flex;
+	gap: 10px;
+}
+
+.filter-button.selected {
+	background-color: rgb(109, 120, 155);
+	flex-direction: row-reverse;
+}
+
+.filter-button.selected>img {
+	height: 10px;
+	width: 10px;
+	align-self: center;
+}
+
+.filter-selected-x {
+	/*efefef*/
+}
+
+.filter-button-img {
+	height: 10px;
+}
+
+.filter-selected-x:hover {
+	font-weight: 800;
+}
+
+.filter-button:hover {
+	background-color: rgb(109, 120, 155);
+	color: #212121;
+}

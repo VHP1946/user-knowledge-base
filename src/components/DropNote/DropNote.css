@@ -1,0 +1,112 @@
+#drop-note-container {
+	z-index: 400;
+}
+
+.drop-note {
+	position: absolute;
+	min-width: 150px;
+	max-width: 200px;
+	min-height: 100px;
+	right: 10px;
+	top: 40px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px;
+	overflow: hidden;
+	filter: var(--drop-shadow);
+	z-index: 400;
+}
+
+.drop-note-close {
+	text-align: right;
+	padding-right: 10px;
+	padding-left: 10px;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.drop-note-content {
+	min-height: 100%;
+	height: fit-content;
+	padding: 5px;
+	font-size: larger;
+	font-weight: 550;
+	color: #212121;
+	word-wrap: break-word;
+}
+
+.drop-note-close:hover {
+	font-weight: 700;
+}
+
+.drop-note#yellow {
+	background-color: rgb(241, 241, 139);
+}
+
+.drop-note#yellow>.drop-note-close {
+	background-color: rgb(192, 192, 132);
+}
+
+.drop-note#yellow>.drop-note-close:hover {
+	background-color: rgb(156, 156, 109);
+}
+
+.drop-note#red {
+	background-color: rgb(241, 139, 139);
+}
+
+.drop-note#red>.drop-note-close {
+	background-color: rgb(192, 132, 132);
+}
+
+.drop-note#red>.drop-note-close:hover {
+	background-color: rgb(156, 109, 109);
+}
+
+.drop-note#green {
+	background-color: rgb(139, 241, 156);
+}
+
+.drop-note#green>.drop-note-close {
+	background-color: rgb(134, 192, 132);
+}
+
+.drop-note#green>.drop-note-close:hover {
+	background-color: rgb(109, 156, 109);
+}
+
+.drop-note#blue {
+	background-color: rgb(139, 204, 241);
+}
+
+.drop-note#blue>.drop-note-close {
+	background-color: rgb(132, 165, 192);
+}
+
+.drop-note#blue>.drop-note-close:hover {
+	background-color: rgb(109, 141, 156);
+}
+
+.drop-note#orange {
+	background-color: rgb(241, 197, 139);
+}
+
+.drop-note#orange>.drop-note-close {
+	background-color: rgb(192, 168, 132);
+}
+
+.drop-note#orange>.drop-note-close:hover {
+	background-color: rgb(156, 136, 109);
+}
+
+.drop-note#purple {
+	background-color: rgb(200, 139, 241);
+}
+
+.drop-note#purple>.drop-note-close {
+	background-color: rgb(158, 102, 196);
+}
+
+.drop-note#purple>.drop-note-close:hover {
+	background-color: rgb(132, 81, 167);
+}

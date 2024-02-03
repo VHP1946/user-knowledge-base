@@ -1,0 +1,31 @@
+.sort-button {
+	background-color: transparent;
+	width: fit-content;
+	padding: 5px;
+	filter: unset;
+	height: 35px;
+}
+
+.sort-button:hover {
+	background-color: #ccc;
+}
+
+.sort-button>img {
+	padding: 0;
+	height: 25px;
+	width: 25px;
+	filter: brightness(0) saturate(100%) invert(3%) sepia(7%) saturate(29%) hue-rotate(314deg) brightness(99%) contrast(79%);
+}
+
+.sort-button>img:hover {
+	background-color: #ccc;
+	filter: brightness(0) saturate(100%) invert(3%) sepia(7%) saturate(29%) hue-rotate(314deg) brightness(99%) contrast(79%);
+}
+
+.sort-button.selected {
+	background-color: #ccc;
+}
+
+.sort-button.selected>img {
+	filter: brightness(0) saturate(100%) invert(3%) sepia(7%) saturate(29%) hue-rotate(314deg) brightness(99%) contrast(79%);
+}
