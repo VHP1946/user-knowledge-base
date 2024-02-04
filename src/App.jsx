@@ -1,18 +1,4 @@
-/* import { AppBox } from './components';
-
-import config from './config/config.json'
-import appinfo from '../package.json'
-import AppController from './controllers/TestController'
-
-function App() {
-    return (
-        <AppBox
-            config={config}
-            appinfo={appinfo}
-            controller={AppController}
-        />
-    );
-} */
+import { utils, writeFile } from 'xlsx'
 
 import './components/styles/vg-general.css'
 import './components/styles/vg-utility.css'
@@ -36,37 +22,66 @@ function TestApp() {
         11: 'DEC'
     }
 
-    let tabs = {};
+    let tabs = [];
     for (let ea in ref) {
-        tabs[ref[ea]] = { tracks: [] }
+        tabs.push({
+            idnum: Number(ea),
+            abbrev: ref[ea]
+        })
     }
 
     console.log("TABS", tabs);
 
-    var ACTIVATEcleanbutton = () => {
-
+    function ACTIVATEdlButton() {
+        const button = document.querySelector('.dl-button');
+        button.style.backgroundColor = 'green';
+        button.disabled = undefined;
     }
 
-    var ACTIVATEsavebutton = () => {
-        console.log('CLEANED!')
+    async function CREATEexcel(list) {
+        console.log('ListVal', list)
+        let resp = await SAVEexcel({ name: 'TEST', list: list })
+        console.log(resp);
+        ACTIVATEdlButton();
+    }
+
+    function SAVEexcel(data) {
+        return new Promise((resolve) => {
+            //let savefolder = './.temp/';
+            let filename = data.name;
+            console.log(data)
+            let newsheet = utils.json_to_sheet(data.list);
+            let newbook = utils.book_new();
+    
+    
+            utils.book_append_sheet(newbook, newsheet);
+            writeFile(newbook, filename + '.xlsx');
+    
+            console.log('Saved!')
+            return resolve('Saved');
+        })
     }
 
 
     return (
         <div style={{
             display: 'flex',
-            justifyContent: 'space - around'
+            justifyContent: 'space-around'
         }}>
-            <div
-                className="clean-button flat-action-button"
-                onClick={ACTIVATEsavebutton}
-            >CLEAN</div>
-            <div
-                className="save-button flat-action-button"
-                onClick={() => { console.log('SAVED!') }}
-            >SAVE</div>
+            <button
+                className="create-button flat-action-button"
+                onClick={(eve) => CREATEexcel(tabs)}
+            >CREATE</button>
+            <button
+                className="dl-button flat-action-button"
+                onClick={() => console.log('TEST')}
+                disabled={true}
+            >DOWNLOAD</button>
         </div>
     )
 }
 
 export default TestApp;
+
+
+
