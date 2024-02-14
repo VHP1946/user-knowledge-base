@@ -2,12 +2,15 @@ import './components/styles/vg-general.css'
 import './components/styles/vg-utility.css'
 
 function TestApp() {
+
+
     document.addEventListener('keydown', (eve) => {
         if (eve.ctrlKey) {  // if ctrl is being pressed
             if (!eve.altKey) {
                 switch (eve.code) {  // check what other key is being pressed
                     case 'KeyS':
                         console.log('Key S')
+                        eve.preventDefault();
                         break;
                     case 'KeyX':
                     case 'KeyQ':
@@ -19,16 +22,18 @@ function TestApp() {
         }
     })
 
-    function TestFunction() {
+    async function TestFunction() {
         console.log('TEST FIRE');
-        window.ipcRenderer.invoke('TEST-CALL').then(resp => {
+        if (window.ipcRenderer == undefined) {
+            console.log('no electron')
+        } else {
+            let resp = await window.ipcRenderer.invoke('TEST-CALL')
             console.log(resp)
-        })
+        }
     }
 
     return (
         <>
-            <script src='./inject.js'></script>
             <div style={{
                 display: 'flex',
                 justifyContent: 'space-around'
