@@ -2,6 +2,22 @@ import './components/styles/vg-general.css'
 import './components/styles/vg-utility.css'
 
 function TestApp() {
+    document.addEventListener('keydown', (eve) => {
+        if (eve.ctrlKey) {  // if ctrl is being pressed
+            if (!eve.altKey) {
+                switch (eve.code) {  // check what other key is being pressed
+                    case 'KeyS':
+                        console.log('Key S')
+                        break;
+                    case 'KeyX':
+                    case 'KeyQ':
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    })
 
     function TestFunction() {
         console.log('TEST FIRE');
